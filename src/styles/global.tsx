@@ -139,19 +139,6 @@ img { border-radius: 25px; }
 .footer .copyright p { margin-bottom: 0; }
 .footer .credits { margin-top: 5px; font-size: 13px; }
 
-/* ── Preloader ── */
-#preloader { position: fixed; inset: 0; z-index: 999999; overflow: hidden; background: #000; transition: all 0.6s ease-out; }
-#preloader.hide { opacity: 0; pointer-events: none; }
-#preloader:before {
-  content: ""; position: fixed;
-  top: calc(50% - 30px); left: calc(50% - 30px);
-  border: 6px solid #ffffff;
-  border-color: var(--accent-color) transparent var(--accent-color) transparent;
-  border-radius: 50%; width: 60px; height: 60px;
-  animation: animate-preloader 1.5s linear infinite;
-}
-@keyframes animate-preloader { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
 /* ── Scroll Top ── */
 .scroll-top {
   position: fixed; visibility: hidden; opacity: 0; right: 15px; bottom: 15px; z-index: 99999;
@@ -668,5 +655,109 @@ export const COOMING_SOON_CSS = `
     .cs-unit-box { width: 64px; height: 64px; font-size: 24px; }
     .cs-countdown { gap: 10px; }
     .cs-divider { font-size: 22px; margin-top: 14px; }
+  }
+`;
+
+export const PRELOADER_CSS = `
+  #preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    overflow: hidden;
+    background: #04102e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 28px;
+    transition: opacity 0.55s ease-out, visibility 0.55s ease-out;
+  }
+  #preloader.pl-hiding {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  #preloader::before,
+  #preloader::after {
+    content: "";
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    clip-path: polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
+    opacity: 0.2;
+    animation: pl-float 3s ease-in-out infinite;
+  }
+  #preloader::before {
+    top: 18%; left: 12%;
+    border: 1.5px solid #008751;
+    animation-delay: 0.3s;
+  }
+  #preloader::after {
+    bottom: 18%; right: 12%;
+    border: 1.5px solid #ffc451;
+    animation-delay: 1s;
+  }
+
+  .pl-icon { position: relative; width: 120px; height: 120px; }
+  .pl-icon svg { width: 100%; height: 100%; }
+
+  .pl-outer { animation: pl-spin 3s linear infinite; transform-origin: 50% 50%; }
+  .pl-inner { animation: pl-spin-rev 2s linear infinite; transform-origin: 50% 50%; }
+  .pl-shield { animation: pl-shield-pulse 1.6s ease-in-out infinite; transform-origin: 50% 50%; }
+
+  .pl-check {
+    stroke-dasharray: 60;
+    stroke-dashoffset: 60;
+    animation: pl-check-draw 0.8s ease-out 0.3s forwards;
+  }
+
+  .pl-brand {
+    font-family: "Raleway", sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.5px;
+    animation: pl-fade 0.6s ease-out 0.2s both;
+  }
+  .pl-brand span { color: #ffc451; }
+
+  .pl-dots { display: flex; gap: 7px; align-items: center; }
+  .pl-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #ffc451;
+    animation: pl-dot-bounce 1.2s ease-in-out infinite;
+  }
+  .pl-dot:nth-child(2) { animation-delay: 0.2s; }
+  .pl-dot:nth-child(3) { animation-delay: 0.4s; }
+
+  .pl-sub {
+    font-family: "Poppins", sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(180, 210, 255, 0.45);
+    animation: pl-fade 0.6s ease-out 0.5s both;
+  }
+
+  @keyframes pl-spin     { to { transform: rotate(360deg); } }
+  @keyframes pl-spin-rev { to { transform: rotate(-360deg); } }
+  @keyframes pl-shield-pulse {
+    0%, 100% { opacity: 0.85; transform: scale(1); }
+    50%      { opacity: 1;    transform: scale(1.06); }
+  }
+  @keyframes pl-check-draw { to { stroke-dashoffset: 0; } }
+  @keyframes pl-fade {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pl-dot-bounce {
+    0%, 80%, 100% { transform: scale(0.6); opacity: 0.3; }
+    40%           { transform: scale(1);   opacity: 1; }
+  }
+  @keyframes pl-float {
+    0%, 100% { transform: translateY(0) rotate(0deg);    opacity: 0.18; }
+    50%      { transform: translateY(-14px) rotate(30deg); opacity: 0.38; }
   }
 `;
