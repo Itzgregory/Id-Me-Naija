@@ -8,7 +8,7 @@ export const Hero: React.FC = () => (
       <div className="row justify-content-center text-center" data-aos="fade-up" data-aos-delay="100">
         <div className="col-xl-6 col-lg-8">
           <h2>Identity Verified. <span>Trust Established.</span></h2>
-          <p>API-powered NIN, BVN, passport and document verification for Nigerian businesses — real-time, reliable and built for compliance.</p>
+          <p>API-powered NIN, BVN, passport and document verification for Nigerian businesses, real-time, reliable and built for compliance.</p>
         </div>
       </div>
       <div className="row gy-4 mt-5 justify-content-center" data-aos="fade-up" data-aos-delay="200">

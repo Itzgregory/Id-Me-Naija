@@ -2,15 +2,8 @@ import React, { useEffect, useState } from "react";
 import { PRELOADER_CSS } from "../styles/global";
 
 interface PreloaderProps {
-  /** Child page to render underneath the preloader */
   children: React.ReactNode;
-  /**
-   * Extra promises to wait on before hiding.
-   * Pass e.g. script-load promises, data fetches, image loads here.
-   * Preloader stays visible until ALL resolve AND minDuration has elapsed.
-   */
   waitFor?: Promise<unknown>[];
-  /** Minimum time (ms) the preloader is visible — prevents flash-and-gone */
   minDuration?: number;
 }
 
@@ -47,13 +40,13 @@ export const Preloader: React.FC<PreloaderProps> = ({
     return () => { cancelled = true; };
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // intentionally empty — waitFor refs don't change after mount
+  }, []); // intentionally empty , waitFor refs don't change after mount
 
   return (
     <>
       <style>{PRELOADER_CSS}</style>
 
-      {/* Preloader overlay — removed from DOM after transition so it
+      {/* Preloader overlay , removed from DOM after transition so it
           doesn't block pointer events or consume z-index space */}
       {!gone && (
         <div id="preloader" className={hiding ? "pl-hiding" : ""}>
@@ -98,7 +91,7 @@ export const Preloader: React.FC<PreloaderProps> = ({
         </div>
       )}
 
-      {/* Page content renders immediately underneath — not blocked by preloader.
+      {/* Page content renders immediately underneath , not blocked by preloader.
           This means fonts, scripts and images start loading straight away,
           which is what actually makes the preloader wait for real content. */}
       {children}

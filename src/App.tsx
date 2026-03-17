@@ -8,8 +8,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-
-        {/* Main landing — waits for all CDN scripts + min 1.4s */}
+        {/* Main landing waits for all CDN scripts + min 1.4s */}
         <Route
           path="/"
           element={
@@ -19,7 +18,7 @@ function App() {
           }
         />
 
-        {/* Catch-all coming soon — no scripts to wait for, just min 900ms */}
+        {/* Catch-all coming soon no scripts to wait for, just min 900ms */}
         <Route
           path="*"
           element={

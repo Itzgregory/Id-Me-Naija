@@ -10,7 +10,7 @@ export const Stats: React.FC = () => (
         </div>
         <div className="col-lg-6">
           <h3 className="fw-bold fs-2 mb-3">Why ID Me Naija?</h3>
-          <p>Nigeria's most reliable identity verification API — built for compliance and scale.</p>
+          <p>Nigeria's most reliable identity verification API, built for compliance and scale.</p>
           <div className="row gy-4">
             {STATS.map(s => (
               <div className="col-lg-6" key={s.label}>

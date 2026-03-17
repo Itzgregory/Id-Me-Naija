@@ -85,9 +85,9 @@ img { border-radius: 25px; }
   .mobile-nav-toggle {
     color: var(--nav-color); font-size: 28px; line-height: 0;
     margin-right: 10px; cursor: pointer; transition: color 0.3s;
-    background: none; border: none;
+    background: none; border: none; position: relative; z-index:10000;
   }
-  .navmenu { padding: 0; z-index: 9997; }
+  .navmenu { padding: 0; z-index: 9997; display:flex; align-items:center;}
   .navmenu ul {
     display: none; list-style: none;
     position: absolute; inset: 60px 20px 20px 20px;
@@ -95,6 +95,7 @@ img { border-radius: 25px; }
     background-color: var(--nav-mobile-background-color);
     overflow-y: auto; transition: 0.3s; z-index: 9998;
     box-shadow: 0px 0px 30px rgba(0,0,0,0.1);
+    height: 300px
   }
   .navmenu ul.mobile-open { display: block; }
   .navmenu a, .navmenu a:focus {
@@ -104,12 +105,12 @@ img { border-radius: 25px; }
     white-space: nowrap; transition: 0.3s;
   }
   .navmenu a:hover, .navmenu .active, .navmenu .active:focus { background-color: var(--nav-dropdown-hover-color); }
-  .mobile-nav-active .mobile-nav-toggle { color: #fff; position: absolute; font-size: 32px; top: 15px; right: 15px; margin-right: 0; z-index: 9999; }
+  .mobile-nav-active .mobile-nav-toggle { color: #fff; position: fixed; font-size: 32px; top: 15px; right: 5px; margin-right: 0; z-index: 10000; }
   .mobile-nav-active .navmenu { position: fixed; overflow: hidden; inset: 0; background: rgba(33,37,41,0.8); transition: 0.3s; }
   .mobile-nav-active .navmenu > ul { display: block; }
   .header .logo { order: 1; }
   .header .btn-getstarted { order: 2; margin: 0 15px 0 0; padding: 6px 15px; }
-  .header .navmenu { order: 3; }
+  .header .navmenu { order: 3; padding:0 0 0 10px; display:flex; align-items:center;}
 }
 
 /* ── Footer ── */
@@ -285,7 +286,7 @@ section, .section { color: var(--default-color); background-color: var(--backgro
 .contact .php-email-form button[type=submit] { color: var(--contrast-color); background: var(--accent-color); border: 0; padding: 10px 30px; transition: 0.4s; border-radius: 4px; cursor: pointer; font-family: var(--default-font); font-size: 14px; }
 .contact .php-email-form button[type=submit]:hover { background: color-mix(in srgb, var(--accent-color), transparent 20%); }
 
-/* ── Tag Cloud — exact from original <head> inline style ── */
+/* Tag Cloud exact from original <head> inline style*/
 .tag-cloud { text-align: center; padding: 20px; }
 .tag { display: inline-block; margin: 5px; text-decoration: none; color: #0d6efd; font-weight: 500; transition: all 0.3s ease-in-out; }
 .tag:hover { color: #dc3545; transform: scale(1.2); }

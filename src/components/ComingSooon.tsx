@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import idmeLogo from "../assets/img/idmenaija_logo.png";
 import { COOMING_SOON_CSS } from "../styles/global";
 
-// ─── Countdown target — set to 90 days from now ──────────────────────────────
 const TARGET = new Date(Date.now() + 90 * 24 * 60 * 60 * 1000);
 
 function getTimeLeft() {
@@ -141,7 +140,7 @@ export const ComingSoon: React.FC = () => {
           <p className="cs-notify-label">Notify me when it's ready</p>
           {notified ? (
             <div className="cs-form-success">
-              ✓ &nbsp;You're on the list — we'll be in touch soon.
+              &nbsp;You're on the list we'll be in touch soon.
             </div>
           ) : (
             <form className="cs-form" onSubmit={handleNotify}>

@@ -44,8 +44,8 @@ export function initLibraries(): void {
   if (window.PureCounter) new window.PureCounter();
 }
 
-// ─── scriptsReady ─────────────────────────────────────────────────────────────
-// A single promise created at module level — shared across all imports.
+// == scriptsReady ==
+// A single promise created at module level shared across all imports.
 // Resolves only when every CDN script has loaded AND initLibraries() has run.
 // Pass this to <Preloader waitFor={[scriptsReady]}> so the preloader stays
 // visible until the scripts are actually ready to use.
